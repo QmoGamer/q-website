@@ -24,9 +24,19 @@ export default new Router({
       component: () => import(/* webpackChunkName: "playlist" */ './views/Playlist.vue')
     },
     {
-      path: '*',
+      path: '/tools',
+      name: 'tools',
+      component: () => import(/* webpackChunkName: "tools" */ './views/Tools.vue')
+    },
+    {
+      path: '/error',
       name: 'error',
       component: () => import(/* webpackChunkName: "error" */ './views/Error.vue')
+    },
+    {
+      path: '*',
+      name: 'notFound',
+      component: () => import(/* webpackChunkName: "notFound" */ './views/NotFound.vue')
     }
   ]
 })

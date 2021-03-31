@@ -8,7 +8,7 @@
       mode="out-in"
     >
       <template v-for="(item, index) in noticeList">
-        <li v-if="activeIndex === index" :key="index">{{item.title}}</li>
+        <li v-if="activeIndex === index" :key="index">{{ item }}</li>
       </template>
     </transition-group>
   </div>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'MarqueeComponent',
+  name: 'Marquee',
   props: {
     noticeList: {
       type: Array,

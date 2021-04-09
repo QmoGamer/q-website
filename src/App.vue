@@ -10,6 +10,8 @@
 </template>
 
 <style lang="scss">
+@import '@/assets/css/reset.scss';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

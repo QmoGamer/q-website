@@ -18,6 +18,7 @@
             <Marquee v-if="toolInfoList[activeIndex].name === 'Marquee'" :noticeList="noticeList"></Marquee>
             <UnderLineAnimationVue v-if="toolInfoList[activeIndex].name === 'Under line animation'"></UnderLineAnimationVue>
             <DemoModal v-if="toolInfoList[activeIndex].name === 'Demo Modal'" :noticeList="noticeList"></DemoModal>
+            <BinaryTree v-if="toolInfoList[activeIndex].name === 'Binary tree'" :noticeList="noticeList"></BinaryTree>
           </div>
         </div>
       </div>
@@ -29,6 +30,7 @@
 import Marquee from '@/components/Marquee.vue';
 import UnderLineAnimationVue from '@/components/UnderLineAnimation.vue';
 import DemoModal from '@/components/DemoModal.vue';
+import BinaryTree from '@/components/BinaryTree.vue';
 
 export default {
   name: 'Tools',
@@ -36,13 +38,15 @@ export default {
     Marquee,
     UnderLineAnimationVue,
     DemoModal,
+    BinaryTree,
   },
   data: () => ({
     activeIndex: 0,
     toolInfoList: [
       { name: 'Marquee', component: 'Marquee' },
       { name: 'Under line animation',  component:'UnderLineAnimationVue' },
-      { name: 'Demo Modal',  component:'DemoModal' }
+      { name: 'Demo Modal',  component:'DemoModal' },
+      { name: 'Binary tree', component: 'BinaryTree' },
     ],
     noticeList: ['123', 'test', '456', 'abc']
   })

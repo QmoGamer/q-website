@@ -34,6 +34,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "error" */ './views/Error.vue')
     },
     {
+      path: '/calendar',
+      name: 'calendar',
+      component: () => import(/* webpackChunkName: "calendar" */ './views/Calendar.vue')
+    },
+    {
       path: '*',
       name: 'notFound',
       component: () => import(/* webpackChunkName: "notFound" */ './views/NotFound.vue')

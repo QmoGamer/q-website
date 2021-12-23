@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-3">
         <div class="nav flex-column nav-pills">
-          <div 
-            class="nav-link" 
-            :class="{'active': index === activeIndex}" 
-            v-for="(item, index) in toolInfoList" 
+          <div
+            class="nav-link"
+            :class="{'active': index === activeIndex}"
+            v-for="(item, index) in toolInfoList"
             :key="index"
             @click="activeIndex = index"
           >{{ item.name }}</div>
@@ -19,6 +19,7 @@
             <UnderLineAnimationVue v-if="toolInfoList[activeIndex].name === 'Under line animation'"></UnderLineAnimationVue>
             <DemoModal v-if="toolInfoList[activeIndex].name === 'Demo Modal'" :noticeList="noticeList"></DemoModal>
             <BinaryTree v-if="toolInfoList[activeIndex].name === 'Binary tree'" :noticeList="noticeList"></BinaryTree>
+            <TheStamp v-if="toolInfoList[activeIndex].name === 'The Stamp'" :noticeList="noticeList"></TheStamp>
           </div>
         </div>
       </div>
@@ -31,14 +32,16 @@ import Marquee from '@/components/Marquee.vue';
 import UnderLineAnimationVue from '@/components/UnderLineAnimation.vue';
 import DemoModal from '@/components/DemoModal.vue';
 import BinaryTree from '@/components/BinaryTree.vue';
+import TheStamp from '@/components/TheStamp.vue';
 
 export default {
   name: 'Tools',
-  components: { 
+  components: {
     Marquee,
     UnderLineAnimationVue,
     DemoModal,
     BinaryTree,
+    TheStamp
   },
   data: () => ({
     activeIndex: 0,
@@ -47,6 +50,7 @@ export default {
       { name: 'Under line animation',  component:'UnderLineAnimationVue' },
       { name: 'Demo Modal',  component:'DemoModal' },
       { name: 'Binary tree', component: 'BinaryTree' },
+      { name: 'The Stamp', component: 'TheStamp' },
     ],
     noticeList: ['123', 'test', '456', 'abc']
   })

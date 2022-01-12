@@ -5,7 +5,6 @@
       name="marquee"
       tag="ul"
       @after-leave="afterLeave"
-      mode="out-in"
     >
       <template v-for="(item, index) in noticeList">
         <li v-if="activeIndex === index" :key="index">{{ item }}</li>
@@ -25,7 +24,6 @@ export default {
   },
   data() {
     return {
-      marquee: [],
       activeIndex: 0,
     };
   },
@@ -54,8 +52,10 @@ export default {
 }
 
 .scroll-content {
+  display: flex;
   position: relative;
   transition: top 0.3s;
+  flex-direction: column;
 
   li {
     line-height: 40px;

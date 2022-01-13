@@ -1,13 +1,14 @@
 <template>
   <div class="scroll-wrap">
     <transition-group
+      :style="carouselHeight"
       class="scroll-content"
       name="marquee"
       tag="ul"
       @after-leave="afterLeave"
     >
       <template v-for="(item, index) in noticeList">
-        <li v-if="activeIndex === index" :key="index">{{ item }}</li>
+        <li v-if="activeIndex === index" :key="index" :style="translateHeight">{{ item }}</li>
       </template>
     </transition-group>
   </div>
@@ -25,8 +26,17 @@ export default {
   data() {
     return {
       activeIndex: 0,
+      height: '40px',
     };
   },
+  computed:	{
+		carouselHeight() {
+			return { "--height": this.height };
+		},
+		translateHeight() {
+			return { "--translateY": `translateY(-${this.height})` };
+		}
+	},
   methods: {
     afterLeave(el) {
       el.remove();
@@ -47,7 +57,7 @@ export default {
 <style lang="scss" scoped>
 .scroll-wrap {
   width: 100%;
-  height: 40px;
+  height: var(--height);
   overflow: hidden;
 }
 
@@ -58,7 +68,7 @@ export default {
   flex-direction: column;
 
   li {
-    line-height: 40px;
+    line-height: var(--height);
   }
 }
 
@@ -67,6 +77,6 @@ export default {
 }
 .marquee-enter-to, .marquee-leave-to
 {
-  transform: translateY(-40px);
+  transform: var(--translateY);
 }
 </style>
